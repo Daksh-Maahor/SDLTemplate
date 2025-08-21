@@ -16,7 +16,7 @@ include_directories(${SDL2_INCLUDE_DIRS})
 # Add executable
 add_executable(${PROJECT_NAME} 
     src/main.cpp
-    src/Game.cpp
+    src/Window.cpp
 )
 
 # Link libraries

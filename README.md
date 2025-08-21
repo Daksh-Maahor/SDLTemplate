@@ -77,12 +77,14 @@ cmake --build build
 SDLTemplate/
 ├── CMakeLists.txt      # CMake build configuration
 ├── include/            # Header files
-│   └── Game.h         # Game class header
+│   ├── Window.h        # Window class header
+│   ├── Utils.h         # Utilities header
+│   └── InputManager.h  # InputManager struct header
 ├── src/                # Source files
-│   ├── main.cpp       # Main entry point
-│   └── Game.cpp       # Game class implementation
+│   ├── main.cpp        # Main entry point
+│   └── Window.cpp      # Window class implementation
 ├── res/                # Resources (images, sounds, etc.)
-│   └── assets/        # Game assets
+│   └── assets/         # Game assets
 ├── build/              # Build output (created by CMake)
 ├── build.sh            # Build script
 ├── .gitignore          # Git ignore file
@@ -93,23 +95,6 @@ SDLTemplate/
 
 - **ESC**: Exit the game
 - **Close Window**: Exit the game
-
-## Customization
-
-### Adding New Textures
-1. Place your image files in the `res/assets/` directory
-2. Modify `Game::loadTextures()` in `src/Game.cpp` to load your textures
-3. Use `IMG_LoadTexture()` to load images
-
-### Adding Game Objects
-1. Create new classes for your game objects
-2. Add them to the Game class
-3. Update the `update()` and `render()` methods
-
-### Modifying the Game Loop
-The main game loop is in `Game::run()`. You can modify the frame rate, add timing, or implement more sophisticated loop control.
-
-## Troubleshooting
 
 ### SDL2 not found
 Make sure you have installed the development libraries:
