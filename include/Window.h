@@ -2,6 +2,7 @@
 #define WINDOW_H_
 
 #include <SDL2/SDL.h>
+#include "State.h"
 
 class Window
 {

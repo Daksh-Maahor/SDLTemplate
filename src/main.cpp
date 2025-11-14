@@ -2,25 +2,30 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
-#include "../include/Window.h"
-#include "../include/InputManager.h"
-#include "../include/Utils.h"
+#include "Window.h"
+#include "InputManager.h"
+#include "Utils.h"
+#include "State.h"
+#include "Handler.h"
 
-void Render(Window& window)
+void Render(Handler* handler)
 {
-    window.ClearScreen();
+    handler->GetWindow()->ClearScreen();
 
     //draw
+    handler->GetCurrentState()->Render();
 
-    window.Display();
+    handler->GetWindow()->Display();
 }
 
-void Update(Window& window, InputManager& inputManager)
+void Update(Handler* handler)
 {
-    Render(window);
+    if (handler)
+    handler->GetCurrentState()->Update();
+    Render(handler);
 }
 
-int main(int argc, char* argv[])
+int main()
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
     {
@@ -38,6 +43,12 @@ int main(int argc, char* argv[])
     Window window("SDL Template", width, height);
 
     InputManager inputManager;
+
+    State* gameState = new GameState();
+    State* menuState = new MenuState();
+
+    Handler handler(&window, &inputManager);
+    handler.SetCurrentState(menuState);
 
     bool gameRunning = true;
 
@@ -134,7 +145,7 @@ int main(int argc, char* argv[])
         if (delta >= 1)
         {
             //update here
-            Update(window, inputManager);
+            Update(&handler);
             //update above
             ticks++;
             delta--;
@@ -158,7 +169,10 @@ int main(int argc, char* argv[])
     }
 
     window.CleanUp();
+    delete gameState;
+    delete menuState;
 
+    IMG_Quit();
     SDL_Quit();
 
     return 0;

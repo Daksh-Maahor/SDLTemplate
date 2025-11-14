@@ -24,10 +24,10 @@ if [ $? -eq 0 ]; then
     # Check if build was successful
     if [ $? -eq 0 ]; then
         echo "Build successful!"
-        echo "Executable location: build/SDLTemplate"
+        echo "Executable location: build/PokeBattle"
         echo "Resources copied to: build/res/"
         echo ""
-        echo "You can now run the program with: ./SDLTemplate"
+        echo "You can now run the program with: ./PokeBattle"
     else
         echo "Build failed!"
         exit 1
