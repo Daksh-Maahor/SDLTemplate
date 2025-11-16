@@ -40,7 +40,7 @@ int main()
     int width = 1280;
     int height = 720;
 
-    Window window("SDL Template", width, height);
+    Window window("SDLTemplate", width, height);
 
     InputManager inputManager;
 

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(PokeBattle VERSION 1.0.0 LANGUAGES CXX)
+project(SDLTemplate VERSION 1.0.0 LANGUAGES CXX)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
@@ -17,6 +17,7 @@ include_directories(${SDL2_INCLUDE_DIRS})
 add_executable(${PROJECT_NAME} 
     src/main.cpp
     src/Window.cpp
+    src/State.cpp
 )
 
 # Link libraries
