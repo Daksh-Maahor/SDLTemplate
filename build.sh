@@ -27,7 +27,7 @@ if [ $? -eq 0 ]; then
         echo "Executable location: build/SDLTemplate"
         echo "Resources copied to: build/res/"
         echo ""
-        echo "You can now run the program with: ./SoundWSDLTemplateave3DGame"
+        echo "You can now run the program with: ./SDLTemplate"
     else
         echo "Build failed!"
         exit 1
